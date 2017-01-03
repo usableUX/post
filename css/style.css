@@ -826,12 +826,25 @@ section {
       -ms-flex-pack: start;
           justify-content: flex-start;
 }
+@media only screen and (max-width: 529px) {
+  .body-wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
 .left {
   width: 45%;
   background: #314AA8;
   box-shadow: inset -4px 0px 3px 0px rgba(0, 0, 0, 0.2);
   color: #ffffff;
   position: relative;
+}
+@media only screen and (max-width: 529px) {
+  .left {
+    width: 100%;
+  }
 }
 .left .left-header {
   display: -webkit-box;
@@ -841,6 +854,11 @@ section {
 }
 .left .left-header .logo {
   width: 40%;
+}
+@media only screen and (max-width: 529px) {
+  .left .left-header .logo {
+    width: 50%;
+  }
 }
 .left .left-header .logo img {
   width: 100%;
@@ -873,11 +891,26 @@ section {
   font-size: 40px;
   text-shadow: 2px 0 4px rgba(0, 0, 0, 0.2);
 }
+@media only screen and (max-width: 529px) {
+  .left .introduction h1 {
+    font-size: 30px;
+  }
+}
 .left .about-usable {
   padding-top: 20px;
 }
+@media only screen and (max-width: 529px) {
+  .left .about-usable {
+    margin-bottom: 20px;
+  }
+}
 .left .about-usable p {
   padding-bottom: 20px;
+}
+@media only screen and (max-width: 529px) {
+  .left .about-usable p {
+    font-size: 16px;
+  }
 }
 .left .about-usable p a {
   color: #0B1332;
@@ -895,6 +928,11 @@ section {
   padding: 0px 40px 10px;
   font-size: 10px;
 }
+@media only screen and (max-width: 529px) {
+  .left .credit {
+    padding: 5px 20px;
+  }
+}
 .left .credit i {
   color: #DA251C;
 }
@@ -908,6 +946,11 @@ section {
   overflow: scroll;
   height: 100vh;
 }
+@media only screen and (max-width: 529px) {
+  .right {
+    height: auto;
+  }
+}
 .right .right-header {
   width: 100%;
   padding: 20px;
@@ -918,6 +961,11 @@ section {
 }
 .wrapper {
   padding: 40px 40px 20px 40px;
+}
+@media only screen and (max-width: 529px) {
+  .wrapper {
+    padding: 20px;
+  }
 }
 .job {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);

@@ -5,6 +5,9 @@
 	display: flex;
 	flex-direction:row;
 	justify-content: flex-start;
+	@media @mobile{
+		flex-direction:column;
+	}
 }
 
 .left{
@@ -14,6 +17,9 @@
 	box-shadow: inset -4px 0px 3px 0px rgba(0,0,0,0.2);
 	color: @white;
 	position: relative;
+	@media @mobile{
+		width: 100%;
+	}
 
 	.left-header{
 		display: flex;
@@ -21,6 +27,9 @@
 
 		.logo{
 			width: 40%;
+			@media @mobile{
+				width: 50%;
+			}
 			img{
 				width: 100%;
 			}
@@ -53,12 +62,21 @@
 		h1{
 			font-size: 40px;
 			text-shadow:2px 0 4px rgba(0, 0, 0, 0.2);
+			@media @mobile{
+				font-size: 30px;
+			}
 		}
 	}
 	.about-usable{
 		padding-top: 20px;
+		@media @mobile{
+			margin-bottom: 20px;
+		}
 		p{
 			padding-bottom: 20px;
+			@media @mobile{
+				font-size: 16px;
+			}
 			a{
 				color: #0B1332;
 				.transition;
@@ -76,7 +94,9 @@
 		width: 100%;
 		padding: 0px 40px 10px;
 		font-size: 10px;
-		
+		@media @mobile{
+			padding: 5px 20px;
+		}
 		i{
 			color: @red;
 		}
@@ -89,7 +109,9 @@
 	flex-grow:1;
 	overflow: scroll;
 	height: 100vh;
-
+	@media @mobile{
+		height: auto;
+	}
 	.right-header{
 		width: 100%;
 		padding: 20px;
@@ -101,6 +123,9 @@
 }
 .wrapper{
 	padding: 40px 40px 20px 40px;
+	@media @mobile{
+		padding: 20px;
+	}
 }
 
 .job{
