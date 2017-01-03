@@ -1,15 +1,20 @@
-#Changelog
+#Hii ni Post
+*This is Post*
 
-##0.2.0
+##What is post?
 
-This is for the job centre for usable.
+This is simply the HTML template for a the job centre for usable.ng
+
+
+###What Language will this be written in?
+I don't know to be honest - at least not yet. At this point we are very open to suggestions.
 
 ###Why are we doing this?
 
 Well, the request for design talent is increasing so we figured we's create a central place to post them.
 
 ####[Version]
-1.0.0
+0.0.1
 
 
 

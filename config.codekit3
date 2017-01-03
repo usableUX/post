@@ -41,26 +41,6 @@
 		"oF": 0,
 		"oS": 0
 		},
-	"\/css\/bootstrap-grid.css": {
-		"aP": 0,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
-		"oA": 2,
-		"oAP": "\/css\/bootstrap-grid-min.css",
-		"oF": 0,
-		"oS": 0
-		},
-	"\/css\/bootstrap-reboot.css": {
-		"aP": 0,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
-		"oA": 2,
-		"oAP": "\/css\/bootstrap-reboot-min.css",
-		"oF": 0,
-		"oS": 0
-		},
 	"\/css\/plugins\/slick.css": {
 		"aP": 0,
 		"bl": 0,
@@ -93,16 +73,6 @@
 		"oAP": "\/css\/style.css.map",
 		"oF": 0
 		},
-	"\/css\/wtf-forms.css": {
-		"aP": 0,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
-		"oA": 2,
-		"oAP": "\/css\/wtf-forms-min.css",
-		"oF": 0,
-		"oS": 0
-		},
 	"\/img\/logo-w.png": {
 		"ft": 32768,
 		"iS": 13046,
@@ -130,42 +100,6 @@
 		"mi": 1,
 		"oA": 0,
 		"oAP": "\/js\/jquery.min-min.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
-		},
-	"\/js\/main-min.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/js\/main-min-min.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
-		},
-	"\/js\/main.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/js\/main-min.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
-		},
-	"\/js\/scrollreveal.min.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/js\/scrollreveal.min-min.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
-		},
-	"\/js\/slick.min.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/js\/slick.min-min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -330,6 +264,12 @@
 		"oAP": "\/logo.png",
 		"oF": 0,
 		"opt": 0
+		},
+	"\/README.html": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/README.html",
+		"oF": 0
 		},
 	"\/README.md": {
 		"cS": 0,
