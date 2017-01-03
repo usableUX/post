@@ -1,0 +1,77 @@
+/** 
+ * 
+ * These mixins are rules that we use frequently
+ * 
+**/
+
+
+/** 
+ * [Transition]
+ * @time {Easy smooth transition applied to an element}
+ * 
+**/
+
+
+.transition(@time: .2s) {
+  -webkit-transition: all @time ease-in; 
+     -moz-transition: all @time ease-in; 
+       -o-transition: all @time ease-in; 
+          transition: all @time ease-in; 
+}
+
+.transform(@type:rotate, @value){
+  -moz-transform:@type(@value);
+  -o-transform:@type(@value);
+  -webkit-transform:@type(@value);
+  -ms-transform:@type(@value);
+  -ms-transform:@type(@value);
+}
+
+.transition-color(@time: .2s) {
+  -webkit-transition: color @time ease-in; 
+     -moz-transition: color @time ease-in; 
+       -o-transition: color @time ease-in; 
+          transition: color @time ease-in; 
+}
+
+/** 
+ * [Transforms]
+ * @value {Value of the transform to be applied to an element}
+ * 
+**/
+
+.scale(@value:1.05){
+
+    -moz-transform: scale(@value);
+    -o-transform: scale(@value);
+    -ms-transform: scale(@value);
+    -webkit-transform: scale(@value);
+    transform: scale(@value);
+}
+
+/** 
+ * [Border]
+ * @value {The value/degree of 'curving'. Default is 4px;}
+ * 
+**/
+
+.border (@weight: 1px, @alpha: .3){
+  border-color: rgba(93,96,102,@alpha);
+  border-width: @weight;
+  border-style: solid;
+}
+
+/** 
+ * [Border Radius]
+ * @value {The value/degree of 'curving'. Default is 4px;}
+ * 
+**/
+
+.border-radius(@value:4px){
+  -moz-border-radius: @value;
+  -webkit-border-radius: @value;
+  -o-border-radius: @value;
+  -ms-border-radius: @value;
+  -khtml-border-radius: @value;
+  border-radius: @value;
+}

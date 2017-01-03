@@ -1,0 +1,101 @@
+
+footer{
+  padding-top: 60px;
+  background: @almost-white;
+  margin-top: -1px;
+
+  .footer-menu-wrapper{
+    
+    .footer-menu{
+      margin-bottom: 30px;
+      h4{
+        font-size: 16px;
+        font-weight: 500;
+        margin-bottom: 20px;
+      }
+      ul{
+        li{
+          display: block;
+          a{
+            font-size: 14px;
+            color: @grey;
+            .transition;
+            &:hover{
+              color: @font-color;
+            }
+          }
+        }
+      }
+    }
+  }
+  .copy, .credits{
+    padding: 10px 0;
+    font-size: 12px;
+  }
+
+  .footer-contact{
+    background: @fake-black;
+    color: @grey;
+    h3{
+      font-size: 20px;
+    }
+    .footer-contact-wrapper{
+      padding: 25px 10px;
+      text-align: center;
+    }
+    .footer-contact-social{
+      padding: 20px 0;
+      li{
+        display: inline-block;
+        margin-right: 25px;
+        &:last-child{
+          margin: 0;
+        }
+        a{
+          font-size: 30px;
+        }
+        &.facebook{
+          a{
+            color: @sm-facebook;
+          }
+        }
+        &.twitter{
+          a{
+            color: @sm-twitter;
+          }
+        }
+        &.instagram{
+          a{
+            color: @sm-instagram-red;
+          }
+        }
+      }
+    }
+    .footer-contact-info{
+
+      li{
+        display: block;
+        position: relative;
+        font-size: 14px;
+        padding-left: 30px;
+        margin-bottom: 15px;
+        color: rgba(255,255,255,0.9);
+        i{
+          position: absolute;
+          left: 0;
+          top: 0;
+
+          font-size: 20px;
+        }
+        span{
+          text-transform: uppercase;
+          font-size: 10px;
+          display: block;
+        }
+
+
+      }
+    }
+  }
+
+}
