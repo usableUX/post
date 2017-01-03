@@ -17,8 +17,12 @@
 	box-shadow: inset -4px 0px 3px 0px rgba(0,0,0,0.2);
 	color: @white;
 	position: relative;
+	flex-shrink:0;
+
 	@media @mobile{
 		width: 100%;
+		box-shadow: inset 0px -4px 3px 0px rgba(0,0,0,0.2);
+		padding-bottom: 20px;
 	}
 
 	.left-header{
@@ -26,7 +30,7 @@
 		margin-bottom: 30px;
 
 		.logo{
-			width: 40%;
+			width: 30%;
 			@media @mobile{
 				width: 50%;
 			}
@@ -95,7 +99,7 @@
 		padding: 0px 40px 10px;
 		font-size: 10px;
 		@media @mobile{
-			padding: 5px 20px;
+			padding: 5px 20px 10px;
 		}
 		i{
 			color: @red;
@@ -114,15 +118,48 @@
 	}
 	.right-header{
 		width: 100%;
-		padding: 20px;
-		text-align: right;
 		background: #F6F6F6;
+		border-bottom: 1px solid rgba(0,0,0,0.1);
+		padding: 20px 40px;
 		color: #A8A8A8;
 		font-size: 14px;
+		display: flex;
+		.action-button{
+			order:2;
+			width: 50%;
+			text-align: right;
+			a{
+				display: inline-block;
+				border: 1px solid @sm-instagram-blue;
+				padding: 8px 20px;
+				border-radius: @radius;
+				font-weight: 600;
+				color: @sm-instagram-blue;
+				.transition;
+				@media @mobile{
+					font-size: 10px;
+				}
+				&:hover{
+					background: @sm-instagram-blue;
+					color: #fff;
+				}
+
+			}
+		}
+		.date-today{
+			width: 50%;
+			@media @mobile{
+				font-size: 12px;
+			}
+		}
+		span{
+			display: block;
+			text-align: left;
+		}
 	}
 }
 .wrapper{
-	padding: 40px 40px 20px 40px;
+	padding: 20px 40px 20px 40px;
 	@media @mobile{
 		padding: 20px;
 	}
@@ -130,7 +167,7 @@
 
 .job{
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-	padding: 20px;
+	padding: 20px 40px;
 	display: flex;
 	.transition;
 	.animated;
@@ -156,6 +193,170 @@
 		&.time-ago{
 			text-align: center;
 			font-size: 14px;
+		}
+	}
+}
+
+
+.form-wrapper{
+	padding: 40px;
+
+	.form-section-header{
+		padding: 20px 0;
+		h4{
+			color: #125688;
+			font-weight: 500;
+			font-size: 16px;
+		}
+	}
+
+	.form-element{
+		margin-bottom: 15px;
+		&.dual{
+			display: flex;
+			flex:0 0 40%;
+			justify-content:space-between;
+			@media @mobile{
+				flex-direction:column;
+			}
+			>div{
+				width: 49%;
+				@media @mobile{
+					width: 100%;
+					margin-bottom: 15px;
+				}
+			}
+		}
+		>div{
+			position: relative;
+			width: 100%;
+			&.select-box{
+				font-size: 14px;
+				position: relative;
+
+				select{
+					display: inline-block;
+				  width: 100%;
+				  margin: 0;
+				  padding: 30px 10px 10px 15px;
+				  line-height: 1.5;
+				  border: 1px solid rgba(0, 0,0, .1);
+				  color: #555;
+				  background-color: @white;
+				  border-radius: @radius;
+				  cursor: pointer;
+				  outline: 0;
+				  .transition;
+				  -webkit-appearance: none;
+				     -moz-appearance: none;
+				          appearance: none;
+
+   				&:focus {
+					  background: rgba(18, 86, 136, .06);
+						border-color: rgba(18, 86, 136, 1);
+					}
+					&:active {
+					  background: rgba(18, 86, 136, .06);
+					}
+					
+				}
+				&:after {
+				  position: absolute;
+				  top: 30px;
+				  right: 15px;
+				  display: inline-block;
+				  content: "";
+				  width: 0;
+				  height: 0;
+				  pointer-events: none;
+				  border-top: 10px solid;
+				  border-right: 9px solid transparent;
+				  border-bottom: 10px solid transparent;
+				  border-left: 9px solid transparent;
+				}
+
+				select:focus:-moz-focusring {
+				  color: transparent;
+				  text-shadow: 0 0 0 #000;
+				}
+			}
+			label{
+				color: #A8A8A8;
+				font-size: 12px;
+				text-transform: uppercase;
+				display: block;
+				font-weight: 600;
+				position: absolute;
+				top: 10px;
+				left: 15px;
+			}
+			.form-input-text{
+				border: 1px solid rgba(0, 0,0,.1);
+				width: 100%;
+				padding: 30px 10px 10px 15px;
+				font-size: 14px;
+				border-radius: @radius;
+				.transition;
+
+				&:focus{
+					background: rgba(18, 86, 136, .06);
+					border-color: rgba(18, 86, 136, 1);
+				}
+
+			}
+			.form-input-textarea{
+				border: 1px solid rgba(0, 0,0,.1);
+				width: 100%;
+				padding: 25px 10px 10px 15px;
+				font-size: 14px;
+				border-radius: @radius;
+				.transition;
+				min-height: 300px;
+
+				&:focus{
+					background: rgba(18, 86, 136, .06);
+					border-color: rgba(18, 86, 136, 1);
+				}
+			}
+			span{
+				font-size: 10px;
+				display: block;
+				width: 100%;
+				padding: 5px 0px;
+				font-weight: 600;
+				color: @grey;
+			}
+		}
+	}
+}
+
+.form-button-wrapper{
+	display: block;
+	margin: 40px 0;
+	width: 100%;
+	p{
+		font-size: 14px;
+		margin-bottom: 40px;
+		span{
+			font-weight: 600;
+		}
+	}
+
+
+	.button{
+		background: @green;
+		display: block;
+		border: 1px solid transparent;
+		padding: 10px 20px;
+		border-radius: @radius;
+		font-weight: 600;
+		color: @white;
+		.transition;
+		cursor: pointer;
+		font-size: 14px;
+		text-transform: uppercase;
+		&:hover{
+			background: @blue;
 		}
 	}
 }

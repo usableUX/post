@@ -840,10 +840,14 @@ section {
   box-shadow: inset -4px 0px 3px 0px rgba(0, 0, 0, 0.2);
   color: #ffffff;
   position: relative;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 @media only screen and (max-width: 529px) {
   .left {
     width: 100%;
+    box-shadow: inset 0px -4px 3px 0px rgba(0, 0, 0, 0.2);
+    padding-bottom: 20px;
   }
 }
 .left .left-header {
@@ -853,7 +857,7 @@ section {
   margin-bottom: 30px;
 }
 .left .left-header .logo {
-  width: 40%;
+  width: 30%;
 }
 @media only screen and (max-width: 529px) {
   .left .left-header .logo {
@@ -930,7 +934,7 @@ section {
 }
 @media only screen and (max-width: 529px) {
   .left .credit {
-    padding: 5px 20px;
+    padding: 5px 20px 10px;
   }
 }
 .left .credit i {
@@ -953,14 +957,55 @@ section {
 }
 .right .right-header {
   width: 100%;
-  padding: 20px;
-  text-align: right;
   background: #F6F6F6;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 20px 40px;
   color: #A8A8A8;
   font-size: 14px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.right .right-header .action-button {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+  width: 50%;
+  text-align: right;
+}
+.right .right-header .action-button a {
+  display: inline-block;
+  border: 1px solid #125688;
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-weight: 600;
+  color: #125688;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+@media only screen and (max-width: 529px) {
+  .right .right-header .action-button a {
+    font-size: 10px;
+  }
+}
+.right .right-header .action-button a:hover {
+  background: #125688;
+  color: #fff;
+}
+.right .right-header .date-today {
+  width: 50%;
+}
+@media only screen and (max-width: 529px) {
+  .right .right-header .date-today {
+    font-size: 12px;
+  }
+}
+.right .right-header span {
+  display: block;
+  text-align: left;
 }
 .wrapper {
-  padding: 40px 40px 20px 40px;
+  padding: 20px 40px 20px 40px;
 }
 @media only screen and (max-width: 529px) {
   .wrapper {
@@ -969,7 +1014,7 @@ section {
 }
 .job {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  padding: 20px 40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1008,5 +1053,172 @@ section {
 .job > div.time-ago {
   text-align: center;
   font-size: 14px;
+}
+.form-wrapper {
+  padding: 40px;
+}
+.form-wrapper .form-section-header {
+  padding: 20px 0;
+}
+.form-wrapper .form-section-header h4 {
+  color: #125688;
+  font-weight: 500;
+  font-size: 16px;
+}
+.form-wrapper .form-element {
+  margin-bottom: 15px;
+}
+.form-wrapper .form-element.dual {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 40%;
+          flex: 0 0 40%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+@media only screen and (max-width: 529px) {
+  .form-wrapper .form-element.dual {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+.form-wrapper .form-element.dual > div {
+  width: 49%;
+}
+@media only screen and (max-width: 529px) {
+  .form-wrapper .form-element.dual > div {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+.form-wrapper .form-element > div {
+  position: relative;
+  width: 100%;
+}
+.form-wrapper .form-element > div.select-box {
+  font-size: 14px;
+  position: relative;
+}
+.form-wrapper .form-element > div.select-box select {
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+  padding: 30px 10px 10px 15px;
+  line-height: 1.5;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #555;
+  background-color: #ffffff;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: 0;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.form-wrapper .form-element > div.select-box select:focus {
+  background: rgba(18, 86, 136, 0.06);
+  border-color: #125688;
+}
+.form-wrapper .form-element > div.select-box select:active {
+  background: rgba(18, 86, 136, 0.06);
+}
+.form-wrapper .form-element > div.select-box:after {
+  position: absolute;
+  top: 30px;
+  right: 15px;
+  display: inline-block;
+  content: "";
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  border-top: 10px solid;
+  border-right: 9px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 9px solid transparent;
+}
+.form-wrapper .form-element > div.select-box select:focus:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+.form-wrapper .form-element > div label {
+  color: #A8A8A8;
+  font-size: 12px;
+  text-transform: uppercase;
+  display: block;
+  font-weight: 600;
+  position: absolute;
+  top: 10px;
+  left: 15px;
+}
+.form-wrapper .form-element > div .form-input-text {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 100%;
+  padding: 30px 10px 10px 15px;
+  font-size: 14px;
+  border-radius: 4px;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+.form-wrapper .form-element > div .form-input-text:focus {
+  background: rgba(18, 86, 136, 0.06);
+  border-color: #125688;
+}
+.form-wrapper .form-element > div .form-input-textarea {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 100%;
+  padding: 25px 10px 10px 15px;
+  font-size: 14px;
+  border-radius: 4px;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  min-height: 300px;
+}
+.form-wrapper .form-element > div .form-input-textarea:focus {
+  background: rgba(18, 86, 136, 0.06);
+  border-color: #125688;
+}
+.form-wrapper .form-element > div span {
+  font-size: 10px;
+  display: block;
+  width: 100%;
+  padding: 5px 0px;
+  font-weight: 600;
+  color: #9B9B9B;
+}
+.form-button-wrapper {
+  display: block;
+  margin: 40px 0;
+  width: 100%;
+}
+.form-button-wrapper p {
+  font-size: 14px;
+  margin-bottom: 40px;
+}
+.form-button-wrapper p span {
+  font-weight: 600;
+}
+.form-button-wrapper .button {
+  background: #32CD64;
+  display: block;
+  border: 1px solid transparent;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: 600;
+  color: #ffffff;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.form-button-wrapper .button:hover {
+  background: #0B7DBC;
 }
 /*# sourceMappingURL=style.css.map */

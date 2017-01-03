@@ -1,0 +1,1 @@
+function updateClock(){var t=new Date,e=t.getHours(),a=t.getMinutes(),n=t.getSeconds();a=(a<10?"0":"")+a,n=(n<10?"0":"")+n;var o=e<12?"AM":"PM";e=e>12?e-12:e,e=0==e?12:e;var r=e+":"+a+":"+n+" "+o;$(".time").html(r)}$(document).ready(function(){setInterval("updateClock()",1e3);var t=(new Date).toDateString();$(".date").html(t.toString())});
