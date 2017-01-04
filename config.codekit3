@@ -312,6 +312,12 @@
 		"pME": 1,
 		"rFN": 0,
 		"uCM": 0
+		},
+	"\/single-job.html": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/single-job.html",
+		"oF": 0
 		}
 	},
 "hooks": [

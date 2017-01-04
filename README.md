@@ -28,6 +28,7 @@ Below are a list of things or features that we need to implement. If you want to
 - Allow companies or people upload jobs directly.
 - Allow admin approve job postings
 - Get notified when a design job is posted
+- Automatically delist a job after 45days
 
 
 

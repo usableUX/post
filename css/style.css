@@ -1221,4 +1221,66 @@ section {
 .form-button-wrapper .button:hover {
   background: #0B7DBC;
 }
+.single-wrapper {
+  padding: 40px;
+  font-size: 16px;
+}
+@media only screen and (max-width: 529px) {
+  .single-wrapper {
+    padding: 40px 20px;
+  }
+}
+.jb-title {
+  margin-bottom: 20px;
+}
+.jb-title h1 {
+  font-size: 40px;
+  line-height: 1.6em;
+}
+@media only screen and (max-width: 529px) {
+  .jb-title h1 {
+    font-size: 26px;
+  }
+}
+.jb-title span {
+  font-size: 14px;
+}
+@media only screen and (max-width: 529px) {
+  .jb-title span {
+    font-size: 12px;
+  }
+}
+.jb-meta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 5px;
+  margin-bottom: 20px;
+}
+@media only screen and (max-width: 529px) {
+  .jb-meta {
+    font-size: 14px;
+  }
+}
+.jb-meta > div {
+  width: 50%;
+}
+.jb-meta > div span {
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #9B9B9B;
+  font-weight: 600;
+}
+.jb-description {
+  margin: 40px 0;
+}
+.jb-apply {
+  margin-bottom: 40px;
+}
+.jb-apply h3 {
+  font-size: 16px;
+  line-height: 4em;
+}
 /*# sourceMappingURL=style.css.map */
