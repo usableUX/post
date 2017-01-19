@@ -810,6 +810,10 @@ input[type="color"]:focus,
   box-shadow: none;
   outline: none;
 }
+html|* > svg {
+  -webkit-transform-origin: 50% 50% 0px;
+          transform-origin: 50% 50% 0px;
+}
 section {
   border: 1px solid transparent;
 }
@@ -837,7 +841,7 @@ section {
 .left {
   width: 45%;
   background: #314AA8;
-  box-shadow: inset -4px 0px 3px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: inset -4px 0px 3px 0px rgba(0, 0, 0, 0.1);
   color: #ffffff;
   position: relative;
   -ms-flex-negative: 0;
@@ -947,7 +951,7 @@ section {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  overflow: scroll;
+  overflow-x: hidden;
   height: 100vh;
 }
 @media only screen and (max-width: 529px) {
@@ -965,6 +969,11 @@ section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+@media only screen and (max-width: 529px) {
+  .right .right-header {
+    padding: 20px;
+  }
 }
 .right .right-header .action-button {
   -webkit-box-ordinal-group: 3;
@@ -1033,6 +1042,15 @@ section {
   -webkit-animation-duration: 3.5s;
   animation-duration: 3.5s;
 }
+@media only screen and (max-width: 529px) {
+  .job {
+    padding: 20px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
 .job:last-child {
   margin: 0;
 }
@@ -1042,8 +1060,18 @@ section {
 .job > div {
   width: 33%;
 }
+@media only screen and (max-width: 529px) {
+  .job > div {
+    width: 100%;
+  }
+}
 .job > div a {
   font-weight: 600;
+}
+@media only screen and (max-width: 529px) {
+  .job > div a {
+    font-size: 16px;
+  }
 }
 .job > div span {
   display: block;
@@ -1053,6 +1081,17 @@ section {
 .job > div.time-ago {
   text-align: center;
   font-size: 14px;
+}
+@media only screen and (max-width: 529px) {
+  .job > div.time-ago {
+    font-size: 12px;
+    text-align: right;
+  }
+}
+@media only screen and (max-width: 529px) {
+  .job .company {
+    display: none;
+  }
 }
 .form-wrapper {
   padding: 40px;

@@ -13,8 +13,13 @@
 .left{
 	width: 45%;
 	background: @blue-background;
+	// height: 100vh;
+
 	// box-shadow: 2px 0 1px rgba(0, 0, 0, 0.2);
-	box-shadow: inset -4px 0px 3px 0px rgba(0,0,0,0.2);
+	// background: #1c2a5b;
+ //  background: -webkit-linear-gradient(#1c2a5b,#08143a);
+ //  background: linear-gradient(#1c2a5b,#08143a);
+	box-shadow: inset -4px 0px 3px 0px rgba(0,0,0,0.1);
 	color: @white;
 	position: relative;
 	flex-shrink:0;
@@ -53,14 +58,14 @@
 					margin-right: 15px;
 					color: @white;
 
-					&:last-child{	
+					&:last-child{
 						margin: 0;
 					}
 				}
 			}
 		}
 	}
-	
+
 	.introduction{
 		padding: 40px 0;
 		h1{
@@ -111,7 +116,7 @@
 }
 .right{
 	flex-grow:1;
-	overflow: scroll;
+	overflow-x: hidden;
 	height: 100vh;
 	@media @mobile{
 		height: auto;
@@ -124,6 +129,9 @@
 		color: #A8A8A8;
 		font-size: 14px;
 		display: flex;
+		@media @mobile{
+			padding: 20px;
+		}
 		.action-button{
 			order:2;
 			width: 50%;
@@ -173,7 +181,10 @@
 	.animated;
 	.fadeInUp;
 	.slow;
-
+	@media @mobile{
+		padding: 20px;
+		flex-direction: column;
+	}
 	&:last-child{
 		margin: 0;
 	}
@@ -182,8 +193,15 @@
 	}
 	>div{
 		width: 33%;
+		@media @mobile{
+			width: 100%;
+		}
+
 		a{
 			font-weight: 600;
+			@media @mobile{
+				font-size: 16px;
+			}
 		}
 		span{
 			display: block;
@@ -193,6 +211,17 @@
 		&.time-ago{
 			text-align: center;
 			font-size: 14px;
+			@media @mobile{
+				font-size: 12px;
+				text-align: right;
+			}
+		}
+
+
+	}
+	.company{
+		@media @mobile{
+			display: none;
 		}
 	}
 }
@@ -258,7 +287,7 @@
 					&:active {
 					  background: rgba(18, 86, 136, .06);
 					}
-					
+
 				}
 				&:after {
 				  position: absolute;
