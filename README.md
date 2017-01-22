@@ -3,7 +3,7 @@
 
 ##What is post?
 
-This is simply the HTML template for a the job centre for usable.ng
+This is simply the HTML template for the job centre for usable.ng
 
 
 ###What Language will this be written in?
@@ -11,7 +11,7 @@ I don't know to be honest - at least not yet. At this point we are very open to 
 
 ###Why are we doing this?
 
-Well, the request for design talent is increasing so we figured we's create a central place to post them.
+Well, the request for design talent is increasing so we figured we'd create a central place to post them.
 
 ####[Version]
 0.0.1
@@ -26,9 +26,9 @@ Well, the request for design talent is increasing so we figured we's create a ce
 Below are a list of things or features that we need to implement. If you want to jump in; edit this file with a list of things you want to be able to do.
 
 - Allow companies or people upload jobs directly.
-- Allow admin approve job postings
-- Get notified when a design job is posted
-- Automatically delist a job after 45days
+- Allow admin approve job postings.
+- Get notified when a design job is posted.
+- Automatically delist a job after 45days.
 
 
 
