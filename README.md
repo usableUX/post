@@ -25,8 +25,8 @@ Well, the request for design talent is increasing so we figured we'd create a ce
 ###[ToDo]
 Below are a list of things or features that we need to implement. If you want to jump in; edit this file with a list of things you want to be able to do.
 
-- Allow companies or people upload jobs directly.
-- Allow admin approve job postings.
+- Allow companies or people upload jobs directly. *I can do this*
+- Allow admin approve job postings. *I can do this*
 - Get notified when a design job is posted.
 - Automatically delist a job after 45days.
 
