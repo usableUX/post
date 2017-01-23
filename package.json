@@ -1,0 +1,17 @@
+{
+  "name": "post",
+  "version": "0.0.1",
+  "description": "Post design jobs",
+  "repository": {
+    "url": "https://github.com/yomete/post.git",
+    "type": "git"
+  },
+  "author": "Usable",
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-uglify": "^2.0.0",
+    "pump": "^1.0.2"
+  }
+}
