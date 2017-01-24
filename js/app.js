@@ -17,7 +17,7 @@ var postList = {
     template: '#postList',
     data: function() {
         return {
-            jobs: [],
+            jobs: []
         };
     },
     watch: {
@@ -39,7 +39,6 @@ var postList = {
         }
     }
 }
-
 
 var newJob = {
     template: '#addJob',
@@ -105,6 +104,81 @@ var viewJob = {
     }
 }
 
+var editJob = {
+    template: '#addJob',
+    data: function() {
+        return {
+            jobs: []
+        };
+    },
+    watch: {
+        '$route': 'fetchData'
+    },
+    created: function() {
+        this.fetchData()
+    },
+    methods: {
+        fetchData: function() {
+            var self = this;
+            db.jobs.child(this.$route.params.slug).once('value', function(jobs) {
+                if (jobs.val() === null) {
+                    router.push('/404');
+                } else {
+                    self.jobs = jobs.val();
+                }
+            });
+        },
+        save: function() {
+
+            this.jobs.slugifiedTitle = slugify(this.jobs.title);
+            this.jobs.slugifiedCompanyName = slugify(this.jobs.companyName);
+
+            db.jobs.child(this.$route.params.slug).update({
+                title: this.jobs.title,
+                location: this.jobs.location,
+                type: this.jobs.type,
+                description: this.jobs.description,
+                salary: this.jobs.salary,
+                applicationMethod: this.jobs.applicationMethod,
+                companyName: this.jobs.companyName,
+                companyWebsite: this.jobs.companyWebsite,
+                adminContactName: this.jobs.adminContactName,
+                adminContactEmail: this.jobs.adminContactEmail,
+                approved: this.jobs.approved
+            });
+
+            this.$router.push('/admin');
+        }
+    }
+}
+
+var adminHome = {
+    template: '#adminHome',
+    data: function() {
+        return {
+            jobs: []
+        };
+    },
+    watch: {
+        '$route': 'fetchData'
+    },
+    created: function() {
+        this.fetchData()
+    },
+    methods: {
+        fetchData: function() {
+            var self = this;
+
+            db.jobs.once('value', function(snapshot) {
+                snapshot.forEach(function(childSnapshot) {
+                  var jobs = childSnapshot.val();
+                  self.jobs.push(jobs);
+                });
+            });
+        }
+    }
+}
+
 var notFound = {
     template: '#NotFound'
 };
@@ -115,6 +189,8 @@ var router = new VueRouter({
         { name: 'home', path: '/', component: postList },
         { name: 'newJob', path: '/add-job', component: newJob },
         { name: 'viewJob', path: '/posts/:slug', component: viewJob },
+        { name: 'adminHome', path: '/admin', component: adminHome},
+        { name: 'editJob', path: '/admin/posts/:slug', component: editJob },
         { name: '404', path: '/404', component: notFound }
     ]
 });

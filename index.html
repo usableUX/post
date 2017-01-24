@@ -104,7 +104,7 @@
 
         </div>
         <div class="body">
-            <div class="job" v-for="(job, index) in jobs">
+            <div class="job" v-for="(job, index) in jobs" v-if="job.approved">
 
                 <div class="postion">
                     <router-link v-bind:to="{ name: 'viewJob', params: { slug: job.key }}"> {{job.title}} </router-link>
@@ -126,7 +126,9 @@
     <div>
         <div class="right-header">
             <div class="action-button">
-                <router-link to="/">See Job Openings</router-link>
+                <router-link v-if="$route.params.slug" to="/admin">Back</router-link>
+                <router-link v-else to="/">See Job Openings</router-link>
+
             </div>
             <div class="date-today">
                 <span class="time"></span>
@@ -212,10 +214,16 @@
                   <input type="email" class="form-input-text" v-model="jobs.adminContactEmail" required>
                 </div>
               </div>
+              <div v-if="$route.params.slug" class="form-element">
+                <input type="checkbox" id="checkbox" v-model="jobs.approved">
+                <label for="checkbox">Approve this job</label>
+              </div>
               <div class="form-button-wrapper">
                 <p>See ehn, by clicking the "Post Application" you agree to our term and condition which simply states: <span>We reserve the right to not post this job, if we consider it inappropriate 😌</span></p>
                 <div>
-                  <input type="submit" value="Post this Job" class="button">
+                  <input v-if="$route.params.slug" type="submit" value="Update this Job" class="button">
+
+                  <input v-else type="submit" value="Post this Job" class="button">
                 </div>
               </div>
 
@@ -231,7 +239,7 @@
     <div>
         <div class="right-header">
           <div class="action-button">
-            <a href="index.html">See Available Jobs</a>
+            <a href="/">See Available Jobs</a>
           </div>
           <div class="date-today">
             <span class="time"></span>
@@ -276,6 +284,39 @@
             </div>
 
           </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-template" id="adminHome">
+    <div>
+        <div class="right-header">
+
+            <div class="date-today">
+                <span class="time"></span>
+                <span class="date"></span>
+            </div>
+            <div class="action-button">
+                <router-link to="/">Go Home</router-link>
+            </div>
+        </div>
+        <div class="body">
+            <div class="job" v-for="(job, index) in jobs">
+
+                <div class="position">
+                    <a> {{job.title}} </a>
+                    <span class="duration">{{job.type}}</span>
+                </div>
+                <div class="company">
+                    {{job.companyName}}
+                    <span class="location">{{job.location}}</span>
+                </div>
+                <div class="time-ago">
+                    <div class="action-button">
+                        <router-link v-bind:to="{ name: 'editJob', params: { slug: job.key }}"> Edit Job </router-link>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </script>
