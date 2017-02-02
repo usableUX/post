@@ -11,6 +11,7 @@ firebase.initializeApp(config);
 var db = {
     jobs: firebase.database().ref('jobs'),
 }
+var auth = firebase.auth();
 // Components
 
 var postList = {
@@ -102,7 +103,7 @@ var viewJob = {
             });
         }
     }
-}
+};
 
 var editJob = {
     template: '#addJob',
@@ -110,6 +111,14 @@ var editJob = {
         return {
             jobs: []
         };
+    },
+    beforeRouteEnter: function(to, from, next) {
+        if (localStorage.token) {
+            next();
+        }
+        else {
+            next({ path: '/login' })
+        }
     },
     watch: {
         '$route': 'fetchData'
@@ -150,14 +159,23 @@ var editJob = {
             this.$router.push('/admin');
         }
     }
-}
+};
 
 var adminHome = {
     template: '#adminHome',
     data: function() {
         return {
-            jobs: []
+            jobs: [],
+            authenticated: false
         };
+    },
+    beforeRouteEnter: function(to, from, next) {
+        if (localStorage.token) {
+            next();
+        }
+        else {
+            next({ path: '/login' })
+        }
     },
     watch: {
         '$route': 'fetchData'
@@ -168,20 +186,58 @@ var adminHome = {
     methods: {
         fetchData: function() {
             var self = this;
-
             db.jobs.once('value', function(snapshot) {
                 snapshot.forEach(function(childSnapshot) {
                   var jobs = childSnapshot.val();
                   self.jobs.push(jobs);
                 });
             });
+            if (localStorage.token) {
+                self.authenticated = true;
+            }
+        },
+        logout: function () {
+            auth.signOut().then(function() {
+              localStorage.removeItem('token');
+              router.push('/login');
+            }, function(error) {
+
+            });
         }
     }
-}
+};
 
 var notFound = {
     template: '#NotFound'
 };
+
+var loginScreen = {
+    template: '#loginScreen',
+    data: function() {
+        return {
+            login: {},
+            authenticated: false,
+            isProcessing: false,
+            errorMessage: false
+        };
+    },
+    methods: {
+        login: function() {
+            this.isProcessing = true;
+            auth.signInWithEmailAndPassword(this.login.email, this.login.password)
+                .then (function(data) {
+                    localStorage.token = data.uid;
+                    this.authenticated = true;
+                    router.push('/admin');
+                }).catch(function(error) {
+                  // Handle Errors here.
+                //   var errorCode = error.code;
+                   //var errorMessage = error.message;
+                });
+        }
+
+    }
+}
 
 // Routes
 var router = new VueRouter({
@@ -191,6 +247,7 @@ var router = new VueRouter({
         { name: 'viewJob', path: '/posts/:slug', component: viewJob },
         { name: 'adminHome', path: '/admin', component: adminHome},
         { name: 'editJob', path: '/admin/posts/:slug', component: editJob },
+        { name: 'loginScreen', path: '/login', component: loginScreen },
         { name: '404', path: '/404', component: notFound }
     ]
 });

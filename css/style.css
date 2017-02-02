@@ -358,30 +358,30 @@ input[type=search] {
 /** Colors **/
 /** Margins  **/
 /** Media Query **/
-/** 
- * 
+/**
+ *
  * These mixins are rules that we use frequently
- * 
+ *
 **/
-/** 
+/**
  * [Transition]
  * @time {Easy smooth transition applied to an element}
- * 
+ *
 **/
-/** 
+/**
  * [Transforms]
  * @value {Value of the transform to be applied to an element}
- * 
+ *
 **/
-/** 
+/**
  * [Border]
  * @value {The value/degree of 'curving'. Default is 4px;}
- * 
+ *
 **/
-/** 
+/**
  * [Border Radius]
  * @value {The value/degree of 'curving'. Default is 4px;}
- * 
+ *
 **/
 /** Extending animate.css */
 .animated {
@@ -739,6 +739,82 @@ input[type=search] {
 .controls-inline .control + .control {
   margin-left: 1rem;
 }
+.loader {
+  display: inline-block;
+  margin: 0 15px;
+  font-size: 6px;
+  text-indent: -9999em;
+  width: 4em;
+  height: 4em;
+  border-radius: 50%;
+  background: #ffffff;
+  background: -moz-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+  background: -webkit-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+  background: -o-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+  background: -ms-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+  background: linear-gradient(to right, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+  position: relative;
+  -webkit-animation: load3 1.4s infinite linear;
+  animation: load3 1.4s infinite linear;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+.loader:before {
+  width: 50%;
+  height: 50%;
+  background: #32CD64;
+  border-radius: 100% 0 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+}
+.loader:after {
+  background: #ffffff;
+  width: 75%;
+  height: 75%;
+  border-radius: 50%;
+  content: '';
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+@-webkit-keyframes load3 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load3 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.formerror {
+  display: block !important;
+  background-color: #bd362f;
+  height: auto;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+.formerror > p {
+  color: white;
+  font-size: 14px;
+  margin-bottom: 0;
+}
 /**** Global Classes *****/
 html {
   font-size: 18px;
@@ -809,6 +885,9 @@ input[type="color"]:focus,
   border-color: rgba(126, 239, 104, 0);
   box-shadow: none;
   outline: none;
+}
+.hidden {
+  display: none;
 }
 html|* > svg {
   -webkit-transform-origin: 50% 50% 0px;
