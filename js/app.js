@@ -1,36 +1,298 @@
-function updateClock ( )
-  {
-  var currentTime = new Date ( );
-    var currentHours = currentTime.getHours ( );
-    var currentMinutes = currentTime.getMinutes ( );
-    var currentSeconds = currentTime.getSeconds ( );
 
-    // Pad the minutes and seconds with leading zeros, if required
-    currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
-    currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
+var config = {
+    apiKey: "AIzaSyBuddga2i4I97hq18krbZ5EhTehY_EBy1Q",
+    authDomain: "usable-post.firebaseapp.com",
+    databaseURL: "https://usable-post.firebaseio.com",
+    storageBucket: "usable-post.appspot.com"
+};
 
-    // Choose either "AM" or "PM" as appropriate
-    var timeOfDay = ( currentHours < 12 ) ? "AM" : "PM";
+firebase.initializeApp(config);
 
-    // Convert the hours component to 12-hour format if needed
-    currentHours = ( currentHours > 12 ) ? currentHours - 12 : currentHours;
+var db = {
+    jobs: firebase.database().ref('jobs'),
+}
+var auth = firebase.auth();
+// Components
 
-    // Convert an hours component of "0" to "12"
-    currentHours = ( currentHours == 0 ) ? 12 : currentHours;
+var postList = {
+    template: '#postList',
+    data: function() {
+        return {
+            jobs: []
+        };
+    },
+    watch: {
+        '$route': 'fetchData'
+    },
+    created: function() {
+        this.fetchData()
+    },
+    methods: {
+        fetchData: function() {
+            var self = this;
 
-    // Compose the string for display
-    var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay;
-    
-    
-    $(".time").html(currentTimeString);
-        
- }
+            db.jobs.once('value', function(snapshot) {
+                snapshot.forEach(function(childSnapshot) {
+                  var jobs = childSnapshot.val();
+                  self.jobs.push(jobs);
+                });
+            });
+        }
+    }
+}
 
+var newJob = {
+    template: '#addJob',
+    data: function() {
+        return {
+            jobs: {}
+        }
+    },
+    methods: {
+        save: function() {
+            var today = getCurrentDate();
+            this.jobs.slug = generateUUID();
+            this.jobs.slugifiedTitle = slugify(this.jobs.title);
+            this.jobs.slugifiedCompanyName = slugify(this.jobs.companyName);
+            var four = randomFour();
 
-$(document).ready(function(){
-  setInterval('updateClock()', 1000);
+            db.jobs.child(this.jobs.slug).set({
+                title: this.jobs.title,
+                location: this.jobs.location,
+                type: this.jobs.type,
+                description: this.jobs.description,
+                salary: this.jobs.salary,
+                applicationMethod: this.jobs.applicationMethod,
+                companyName: this.jobs.companyName,
+                companyWebsite: this.jobs.companyWebsite,
+                adminContactName: this.jobs.adminContactName,
+                adminContactEmail: this.jobs.adminContactEmail,
+                approved: false,
+                key: this.jobs.slug,
+                slug: four + "-" + this.jobs.slugifiedTitle + "-" + this.jobs.slugifiedCompanyName,
+                timestamp: today
+            });
+            this.$router.push('/');
+        }
+    }
+};
 
-  var date = new Date().toDateString();
+var viewJob = {
+    template: '#singleJob',
+    data: function() {
+        return {
+            jobs: []
+        };
+    },
+    watch: {
+        '$route': 'fetchData'
+    },
+    created: function() {
+        this.fetchData()
+    },
+    methods: {
+        fetchData: function() {
+            var self = this;
 
-  $('.date').html(date.toString());
+            db.jobs.child(this.$route.params.slug).once('value', function(jobs) {
+                if (jobs.val() === null) {
+                    router.push('/404');
+                } else {
+                    self.jobs = jobs.val();
+                }
+            });
+        }
+    }
+};
+
+var editJob = {
+    template: '#addJob',
+    data: function() {
+        return {
+            jobs: []
+        };
+    },
+    beforeRouteEnter: function(to, from, next) {
+        if (localStorage.token) {
+            next();
+        }
+        else {
+            next({ path: '/login' })
+        }
+    },
+    watch: {
+        '$route': 'fetchData'
+    },
+    created: function() {
+        this.fetchData()
+    },
+    methods: {
+        fetchData: function() {
+            var self = this;
+            db.jobs.child(this.$route.params.slug).once('value', function(jobs) {
+                if (jobs.val() === null) {
+                    router.push('/404');
+                } else {
+                    self.jobs = jobs.val();
+                }
+            });
+        },
+        save: function() {
+
+            this.jobs.slugifiedTitle = slugify(this.jobs.title);
+            this.jobs.slugifiedCompanyName = slugify(this.jobs.companyName);
+
+            db.jobs.child(this.$route.params.slug).update({
+                title: this.jobs.title,
+                location: this.jobs.location,
+                type: this.jobs.type,
+                description: this.jobs.description,
+                salary: this.jobs.salary,
+                applicationMethod: this.jobs.applicationMethod,
+                companyName: this.jobs.companyName,
+                companyWebsite: this.jobs.companyWebsite,
+                adminContactName: this.jobs.adminContactName,
+                adminContactEmail: this.jobs.adminContactEmail,
+                approved: this.jobs.approved
+            });
+
+            this.$router.push('/admin');
+        }
+    }
+};
+
+var adminHome = {
+    template: '#adminHome',
+    data: function() {
+        return {
+            jobs: [],
+            authenticated: false
+        };
+    },
+    beforeRouteEnter: function(to, from, next) {
+        if (localStorage.token) {
+            next();
+        }
+        else {
+            next({ path: '/login' })
+        }
+    },
+    watch: {
+        '$route': 'fetchData'
+    },
+    created: function() {
+        this.fetchData()
+    },
+    methods: {
+        fetchData: function() {
+            var self = this;
+            db.jobs.once('value', function(snapshot) {
+                snapshot.forEach(function(childSnapshot) {
+                  var jobs = childSnapshot.val();
+                  self.jobs.push(jobs);
+                });
+            });
+            if (localStorage.token) {
+                self.authenticated = true;
+            }
+        },
+        logout: function () {
+            auth.signOut().then(function() {
+              localStorage.removeItem('token');
+              router.push('/login');
+            }, function(error) {
+
+            });
+        }
+    }
+};
+
+var notFound = {
+    template: '#NotFound'
+};
+
+var loginScreen = {
+    template: '#loginScreen',
+    data: function() {
+        return {
+            login: {},
+            authenticated: false,
+            isProcessing: false,
+            errorMessage: false
+        };
+    },
+    methods: {
+        login: function() {
+            this.isProcessing = true;
+            auth.signInWithEmailAndPassword(this.login.email, this.login.password)
+                .then (function(data) {
+                    localStorage.token = data.uid;
+                    this.authenticated = true;
+                    router.push('/admin');
+                }).catch(function(error) {
+                  // Handle Errors here.
+                //   var errorCode = error.code;
+                   //var errorMessage = error.message;
+                });
+        }
+
+    }
+}
+
+// Routes
+var router = new VueRouter({
+    routes: [
+        { name: 'home', path: '/', component: postList },
+        { name: 'newJob', path: '/add-job', component: newJob },
+        { name: 'viewJob', path: '/posts/:slug', component: viewJob },
+        { name: 'adminHome', path: '/admin', component: adminHome},
+        { name: 'editJob', path: '/admin/posts/:slug', component: editJob },
+        { name: 'loginScreen', path: '/login', component: loginScreen },
+        { name: '404', path: '/404', component: notFound }
+    ]
 });
+
+var app = new Vue({ router: router }).$mount('#app');
+
+// functions
+
+function getCurrentDate() {
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+
+    var yyyy = today.getFullYear();
+    if(dd<10){
+        dd='0'+dd;
+    }
+    if(mm<10){
+        mm='0'+mm;
+    }
+    var today = dd+'/'+mm+'/'+yyyy;
+
+    return today;
+}
+
+function generateUUID() {
+    var d = new Date().getTime();
+    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = (d + Math.random() * 16) % 16 | 0;
+        d = Math.floor(d / 16);
+        return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+    });
+    return uuid;
+};
+
+function randomFour() {
+    var rndFour = Math.floor(1000 + Math.random() * 9000);
+    return rndFour;
+}
+
+function slugify(text) {
+    return text.toString().toLowerCase()
+        .replace(/\s+/g, '-') // Replace spaces with -
+        .replace(/[^\w\-]+/g, '') // Remove all non-word chars
+        .replace(/\-\-+/g, '-') // Replace multiple - with single -
+        .replace(/^-+/, '') // Trim - from start of text
+        .replace(/-+$/, ''); // Trim - from end of text
+}

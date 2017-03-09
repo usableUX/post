@@ -3,9 +3,33 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="description" content="">
+    <meta name="description" content="Are you a designer or Front-end developer? Find jobs on POST.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Post by Usable</title>
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <!-- OpenGraph for Facebook. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="🎨 Find Designer Jobs on POST by Usable.ng" />
+    <meta property="og:url" content="http://cchubnigeria.com/diasporachallenge" />
+    <meta property="og:description" content="Are you a designer or Front-end developer? Find jobs on POST." />
+    <meta property="og:image" content="https://post.usable.ng/img/twitter-card.jpg" />
+    <meta property="og:locale" content="en_US" />
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@usable_">
+    <meta name="twitter:title" content="🎨 Find Designer Jobs | POST by Usable.ng">
+    <meta name="twitter:description" content="Are you a designer or Front-end developer? Find jobs on POST.">
+    <meta name="twitter:image:src" content="https://post.usable.ng/img/twitter-card.jpg">
+    <title>🎨 Find Designer Jobs | Post by Usable.ng </title>
+
     <!-- Font Awesome CDN via https://fontawesomecdn.com/ -->
     <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" integrity="sha384-dNpIIXE8U05kAbPhy3G1cz+yZmTzA6CY8Vg/u2L9xRnHjJiAK76m2BIEaSEV+/aU" crossorigin="anonymous">
 
@@ -17,332 +41,359 @@
 
     <!-- The main style sheet. Where the (allow us to say) magic happens -->
     <link rel="stylesheet" href="css/style.css">
+    <script>
+        window.twttr = (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0],
+                t = window.twttr || {};
+            if (d.getElementById(id)) return t;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js, fjs);
+
+            t._e = [];
+            t.ready = function(f) {
+                t._e.push(f);
+            };
+            return t;
+        }(document, "script", "twitter-wjs"));
+    </script>
+
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-31913096-19', 'auto');
+        ga('send', 'pageview');
+    </script>
 </head>
 
 <body>
-    <div class="body-wrapper">
+    <div class="body-wrapper" id="app">
         <div class="left">
             <div class="wrapper">
                 <div class="left-header">
                     <div class="logo">
-                        <img src="img/logo-w.png" alt="">
+                        <router-link to="/"><img src="img/logo-w.png" alt="Post by Usable"></router-link>
                     </div>
                     <div class="share">
                         Share on <span><a href=""><i class="fa fa-facebook"></i></a> <a href=""><i class="fa fa-twitter"></i></a></span>
-
                     </div>
                 </div>
-
-
                 <div class="introduction animated fadeInUp slow">
                     <h1>Find local design jobs today. </h1>
                     <!-- <h1>Local jobs for Designers and Frontend Devs</h1> -->
                 </div>
-
                 <div class="about-usable">
-                    <p>usable is a community of people (designers, developers, enthusiasts) who are interested in designing usable products. <a href="http://usable.ng">LEARN MORE</a></p>
-
+                    <p>USABLE is a community of humans who are interested in building beautiful & functional products. <a href="http://usable.ng">LEARN MORE</a></p>
                     <a class="twitter-follow-button" href="https://twitter.com/usable_"> Follow @usable_</a>
                 </div>
-
                 <div class="credit">
-                    Handcrafted with <i class="fa fa-heart"></i> in Lagos by <a href="https://twitter.com/udezekene" target="_blank">@udezekene</a>
+                    Handcrafted with <i class="fa fa-heart"></i> in Lagos by <a href="https://twitter.com/udezekene" target="_blank">@udezekene</a> & <a href="https://twitter.com/yomieluwande" target="_blank">@yomieluwande</a>
                 </div>
             </div>
         </div>
         <div class="right">
-            <div class="right-header">
-                <div class="action-button">
-                    <a href="add-job.html">Post A Job</a>
-                </div>
-                <div class="date-today">
-                    <span class="time"></span>
-                    <span class="date"></span>
-                </div>
-
-            </div>
-            <div class="body">
-                <div class="job">
-
-                    <div class="postion">
-                        <a href="single-job.html"> UX Researcher </a>
-                        <span class="duration">Full Time</span>
-                    </div>
-                    <div class="company">
-                        BahdGuyMovement
-                        <span class="location">Lagos</span>
-                    </div>
-                    <div class="time-ago">
-                        1 Week Ago
-                    </div>
-                </div>
-                <div class="job">
-
-                    <div class="postion">
-                        <a href="single-job.html"> Content Designer </a>
-                        <span class="duration">Full Time</span>
-                    </div>
-                    <div class="company">
-                        Co-Creation Hub
-                        <span class="location">Lagos</span>
-                    </div>
-                    <div class="time-ago">
-                        1 Week Ago
-                    </div>
-                </div>
-                <div class="job">
-
-                    <div class="postion">
-                        <a href="single-job.html"> User Experience Designer </a>
-                        <span class="duration">Full Time</span>
-                    </div>
-                    <div class="company">
-                        No Kissing Baby
-                        <span class="location">Lagos</span>
-                    </div>
-                    <div class="time-ago">
-                        1 Week Ago
-                    </div>
-                </div>
-                <div class="job">
-
-                    <div class="postion">
-                        <a href="single-job.html"> UX Designer </a>
-                        <span class="duration">Full Time</span>
-                    </div>
-                    <div class="company">
-                        Run Town
-                        <span class="location">Lagos</span>
-                    </div>
-                    <div class="time-ago">
-                        1 Week Ago
-                    </div>
-                </div>
-                <div class="job">
-
-                    <div class="postion">
-                        <a href="single-job.html"> Front-end Developer </a>
-                        <span class="duration">Contract</span>
-                    </div>
-                    <div class="company">
-                        Mad Over You
-                        <span class="location">Lagos</span>
-                    </div>
-                    <div class="time-ago">
-                        1 Week Ago
-                    </div>
-                </div>
-                <div class="job">
-
-                    <div class="postion">
-                        <a href="single-job.html"> Front-end Developer </a>
-                        <span class="duration">Full Time</span>
-                    </div>
-                    <div class="company">
-                        Korede Bello
-                        <span class="location">Lagos</span>
-                    </div>
-                    <div class="time-ago">
-                        1 Week Ago
-                    </div>
-                </div>
-                <div class="job">
-
-                    <div class="postion">
-                        <a href="single-job.html"> UX Designer </a>
-                        <span class="duration">Internship</span>
-                    </div>
-                    <div class="company">
-                        Alkyda
-                        <span class="location">Lagos</span>
-                    </div>
-                    <div class="time-ago">
-                        1 Week Ago
-                    </div>
-                </div>
-                <div class="job">
-
-                    <div class="postion">
-                        <a href="single-job.html"> UX Designer </a>
-                        <span class="duration">Part Time</span>
-                    </div>
-                    <div class="company">
-                        WizKid
-                        <span class="location">Lagos</span>
-                    </div>
-                    <div class="time-ago">
-                        1 Week Ago
-                    </div>
-                </div>
-                <div class="job">
-
-                    <div class="postion">
-                        <a href="single-job.html"> User Interface/Visual Designer </a>
-                        <span class="duration">Full Time</span>
-                    </div>
-                    <div class="company">
-                        Shele Gan Gan
-                        <span class="location">Lagos</span>
-                    </div>
-                    <div class="time-ago">
-                        1 Week Ago
-                    </div>
-                </div>
-
-                <div class="job">
-
-                    <div class="postion">
-                        <a href="single-job.html"> UX Designer </a>
-                        <span class="duration">Full Time</span>
-                    </div>
-                    <div class="company">
-                        Co-Creation Hub
-                        <span class="location">Lagos</span>
-                    </div>
-                    <div class="time-ago">
-                        1 Week Ago
-                    </div>
-                </div>
-                <div class="job">
-
-                    <div class="postion">
-                        <a href="single-job.html"> UX Designer </a>
-                        <span class="duration">Full Time</span>
-                    </div>
-                    <div class="company">
-                        Bank Alert
-                        <span class="location">Lagos</span>
-                    </div>
-                    <div class="time-ago">
-                        1 Week Ago
-                    </div>
-                </div>
-                <div class="job">
-
-                    <div class="postion">
-                        <a href="single-job.html"> UX Copywriter </a>
-                        <span class="duration">Full Time</span>
-                    </div>
-                    <div class="company">
-                        Pana
-                        <span class="location">Lagos</span>
-                    </div>
-                    <div class="time-ago">
-                        1 Week Ago
-                    </div>
-                </div>
-                <div class="job">
-
-                    <div class="postion">
-                        <a href="single-job.html"> UX Researcher </a>
-                        <span class="duration">Full Time</span>
-                    </div>
-                    <div class="company">
-                        Mama
-                        <span class="location">Lagos</span>
-                    </div>
-                    <div class="time-ago">
-                        1 Week Ago
-                    </div>
-                </div>
-                <div class="job">
-
-                    <div class="postion">
-                        <a href="single-job.html"> UX Designer </a>
-                        <span class="duration">Full Time</span>
-                    </div>
-                    <div class="company">
-                        Co-Creation Hub
-                        <span class="location">Lagos</span>
-                    </div>
-                    <div class="time-ago">
-                        1 Week Ago
-                    </div>
-                </div>
-                <div class="job">
-
-                    <div class="postion">
-                        <a href="single-job.html"> Content Strategist </a>
-                        <span class="duration">Full Time</span>
-                    </div>
-                    <div class="company">
-                        YBNL
-                        <span class="location">Lagos</span>
-                    </div>
-                    <div class="time-ago">
-                        1 Week Ago
-                    </div>
-                </div>
-                <div class="job">
-
-                    <div class="postion">
-                        <a href="single-job.html"> Visual Designer </a>
-                        <span class="duration">Full Time</span>
-                    </div>
-                    <div class="company">
-                        Co-Creation Hub
-                        <span class="location">Lagos</span>
-                    </div>
-                    <div class="time-ago">
-                        1 Week Ago
-                    </div>
-                </div>
-                <div class="job">
-
-                    <div class="postion">
-                        <a href="single-job.html"> UX Designer </a>
-                        <span class="duration">Full Time</span>
-                    </div>
-                    <div class="company">
-                        LegendaryBeatz
-                        <span class="location">Lagos</span>
-                    </div>
-                    <div class="time-ago">
-                        1 Week Ago
-                    </div>
-                </div>
-            </div>
+            <router-view></router-view>
         </div>
     </div>
 </body>
 
-<script>
-    window.twttr = (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0],
-            t = window.twttr || {};
-        if (d.getElementById(id)) return t;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "https://platform.twitter.com/widgets.js";
-        fjs.parentNode.insertBefore(js, fjs);
+<!-- Templates -->
+<script type="text/x-template" id="postList">
+    <section>
+        <div class="right-header">
+            <div class="action-button">
+                <router-link to="/add-job">Post A Job</router-link>
+            </div>
+            <div class="date-today">
+                <span class="time"></span>
+                <span class="date"></span>
+            </div>
 
-        t._e = [];
-        t.ready = function(f) {
-            t._e.push(f);
-        };
-
-        return t;
-    }(document, "script", "twitter-wjs"));
+        </div>
+        <div class="body">
+            <div class="job" v-for="(job, index) in jobs" v-if="job.approved">
+                <div class="postion">
+                    <router-link v-bind:to="{ name: 'viewJob', params: { slug: job.key }}"> {{job.title}} </router-link>
+                    <span class="duration">{{job.type}}</span>
+                </div>
+                <div class="company">
+                    {{job.companyName}}
+                    <span class="location">{{job.location}}</span>
+                </div>
+                <div class="time-ago">
+                    {{job.timestamp}}
+                </div>
+            </div>
+        </div>
+    </section>
 </script>
 
-<script>
-    (function(i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function() {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+<script type="text/x-template" id="addJob">
+    <section>
+        <div class="right-header">
+            <div class="action-button">
+                <router-link v-if="$route.params.slug" to="/admin">Back</router-link>
+                <router-link v-else to="/">See Job Openings</router-link>
+            </div>
+            <div class="date-today">
+                <span class="time"></span>
+                <span class="date"></span>
+            </div>
+        </div>
+        <div class="body">
+          <div class="form-wrapper">
+            <!-- <h2>Post A Job</h2> -->
+            <form class="form" v-on:submit.prevent="save">
+              <div class="form-element">
+                <div>
+                  <label for="">Job Title</label>
+                  <input type="text" class="form-input-text" v-model="jobs.title" required>
+                </div>
+              </div>
 
-    ga('create', 'UA-31913096-19', 'auto');
-    ga('send', 'pageview');
+              <div class="form-element dual">
+                <div>
+                  <label for="">Location</label>
+                  <input type="text" class="form-input-text" v-model="jobs.location" required>
+                  <span class="helper">Eg: Kano, Lagos, Abuja, Enugu</span>
+                </div>
+
+                <div class="select-box">
+                  <label for="">Job Type</label>
+                  <div class="">
+                  <select name="" id="" v-model="jobs.type">
+                    <option value="Full Time">Full Time</option>
+                    <option value="Part Time">Part Time</option>
+                    <option value="Contract">Contract</option>
+                    <option value="Internship">Internship</option>
+                  </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-element">
+                <div>
+                  <label for="">Job Description</label>
+                  <textarea name="" id="" class="form-input-textarea" v-model="jobs.description" required></textarea>
+                </div>
+              </div>
+
+              <div class="form-element">
+                <div>
+                  <label for="">Salary (per month)</label>
+                  <input type="text" class="form-input-text" v-model="jobs.salary" required>
+                </div>
+              </div>
+              <div class="form-element">
+                <div>
+                  <label for="">How can the candidate apply?</label>
+                  <input type="text" class="form-input-text" v-model="jobs.applicationMethod" required>
+                  <span>Include a URL to a page where people can apply or an e-mail address.</span>
+                </div>
+              </div>
+
+              <div class="form-section-header">
+                <h4>Company Details</h4>
+              </div>
+              <div class="form-element">
+                <div>
+                  <label for="">Company Name</label>
+                  <input type="text" class="form-input-text" v-model="jobs.companyName" required>
+                </div>
+              </div>
+              <div class="form-element">
+                <div>
+                  <label for="">Company Website (optional)</label>
+                  <input type="text" class="form-input-text" v-model="jobs.companyWebsite">
+                </div>
+              </div>
+              <div class="form-element dual">
+                <div>
+                  <label for="">Admin Contact Name</label>
+                  <input type="text" class="form-input-text" v-model="jobs.adminContactName" required>
+                </div>
+                <div>
+                  <label for="">Admin Contact E-mail</label>
+                  <input type="email" class="form-input-text" v-model="jobs.adminContactEmail" required>
+                </div>
+              </div>
+              <div v-if="$route.params.slug" class="form-element">
+                <input type="checkbox" id="checkbox" v-model="jobs.approved">
+                <label for="checkbox">Approve this job</label>
+              </div>
+              <div class="form-button-wrapper">
+                <p>See ehn, by clicking the "Post Application" you agree to our term and condition which simply states: <span>We reserve the right to not post this job, if we consider it inappropriate 😌</span></p>
+                <div>
+                  <input v-if="$route.params.slug" type="submit" value="Update this Job" class="button">
+
+                  <input v-else type="submit" value="Post this Job" class="button">
+                </div>
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+    </section>
 </script>
 
+<script type="text/x-template" id="singleJob">
+    <section>
+        <div class="right-header">
+          <div class="action-button">
+            <a href="/">See Available Jobs</a>
+          </div>
+          <div class="date-today">
+            <span class="time"></span>
+            <span class="date"></span>
+          </div>
+
+        </div>
+        <div class="body">
+          <div class="single-wrapper">
+            <div class="jb-title">
+              <h1>{{jobs.title}}</h1>
+              <span><b>{{jobs.companyName}}</b> in <b>{{jobs.location}}</b></span>
+            </div>
+            <div class="jb-meta">
+              <div>
+                <span>Job Type</span>
+                {{jobs.type}}
+              </div>
+              <div>
+                <span>Salary (p/m)</span>
+                {{jobs.salary}}
+              </div>
+            </div>
+
+            <div class="jb-description">
+              {{jobs.description}}
+
+            </div>
+
+            <div class="jb-apply">
+              <h3>How to Apply</h3>
+              {{ jobs.applicationMethod }}
+            </div>
+
+            <div class="jb-social-share">
+              <div>
+                <a class="twitter-share-button" href="https://twitter.com/intent/tweet">Tweet</a>
+              </div>
+              <div>
+                <div class="fb-share-button" data-href="http://post.usable.ng" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Share</a></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+    </section>
+</script>
+
+<script type="text/x-template" id="adminHome">
+    <section>
+        <div class="right-header">
+            <div class="date-today">
+                <span class="time"></span>
+                <span class="date"></span>
+            </div>
+            <div class="action-button">
+                <!-- <router-link to="/">Go Home</router-link> -->
+                <a href="#" v-on:click="logout">Logout</a>
+            </div>
+        </div>
+        <div class="body">
+            <div class="job" v-for="(job, index) in jobs">
+
+                <div class="position">
+                    <a> {{job.title}} </a>
+                    <span class="duration">{{job.type}}</span>
+                </div>
+                <div class="company">
+                    {{job.companyName}}
+                    <span class="location">{{job.location}}</span>
+                </div>
+                <div class="time-ago">
+                    <div class="action-button">
+                        <router-link v-bind:to="{ name: 'editJob', params: { slug: job.key }}"> Edit Job </router-link>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</script>
+
+<script type="text/x-template" id="loginScreen">
+    <section>
+        <div class="right-header">
+            <div class="date-today">
+                <span class="time"></span>
+                <span class="date"></span>
+            </div>
+            <div class="action-button">
+                <router-link to="/">Go Home</router-link>
+            </div>
+        </div>
+        <div class="form-wrapper">
+            <form class="form" v-on:submit.prevent="login">
+                <div class="hidden" v-bind:class="{ formerror: errorMessage }">
+                    <p>Invalid username/password. Try again.</p>
+                </div>
+                <div class="form-element">
+                    <div>
+                        <label>Email</label>
+                        <input class="form-input-text" type="email" v-model="login.email" required>
+                    </div>
+                </div>
+
+                <div class="form-element">
+                    <div>
+                        <label>Password</label>
+                        <input class="form-input-text" type="password" v-model="login.password" required>
+                    </div>
+
+                </div>
+                <div class="form-button-wrapper">
+                  <div>
+                    <input type="submit" value="Login" class="button" style="display: inline-block;">
+                    <div v-bind:class="{ loader: isProcessing }"></div>
+                  </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</script>
+<script type="text/x-template" id="NotFound">
+    <section>
+        <div class="right-header">
+            <div class="date-today">
+                <span class="time"></span>
+                <span class="date"></span>
+            </div>
+            <div class="action-button">
+                <router-link to="/">Go Home</router-link>
+            </div>
+        </div>
+        <div style="padding: 50px; text-align: center;">404. Not found</div>
+    </section>
+
+</script>
+
+<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
 <script src="js/jquery.min.js"></script>
-<script src="js/app-min.js"></script>
+<script src="https://unpkg.com/vue@2.1.1/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router@2.1.1/dist/vue-router.js"></script>
+<script src="js/app.js"></script>
+<script src="js/dom.min.js"></script>
 
 </html>
