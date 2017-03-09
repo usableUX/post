@@ -30,6 +30,18 @@ Below are a list of things or features that we need to implement. If you want to
 - Get notified when a design job is posted.
 - Automatically delist a job after 45days.
 
+###[Development ]
+In case you want to join in on the action, this is run on:
+
+- HTML/LESS/JS
+- VueJS
+- Firebase
+
+###[Contributors] 
+Currently being maintained by:
+
+- Yomi Eluwande [@yomielumande](https://github.com/yomete)
+- Udeze Kene [@udezekene](https://github.com/udezekene) 
 
 
 
